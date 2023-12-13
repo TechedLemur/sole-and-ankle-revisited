@@ -16,6 +16,7 @@ const MobileMenu = ({ isOpen, onDismiss }) => {
           <Icon id={"close"} />
           <VisuallyHidden>Dismiss menu</VisuallyHidden>
         </CloseButtonWrapper>
+        <Side />
         <NavWrapper>
           <a href="/sale">Sale</a>
           <a href="/new">New&nbsp;Releases</a>
@@ -51,6 +52,9 @@ const ContentWrapper = styled(DialogContent)`
   flex-direction: column;
   justify-content: center;
   padding-left: 32px;
+  padding-bottom: 32px;
+  padding-top: 32px;
+
   width: 300px;
   height: 100%;
   background-color: hsl(0deg 100% 100%);
@@ -62,12 +66,13 @@ const NavWrapper = styled.nav`
   gap: 12px;
   & > a {
     text-decoration: none;
-    color: ${COLORS.gray[900]};
+    color: var(--color-gray-900);
     font-size: calc(18rem / 16);
     font-weight: 600;
+    text-transform: uppercase;
 
     :hover {
-      color: ${COLORS.secondary};
+      color: var(--color-secondary);
     }
   }
 `;
@@ -78,18 +83,24 @@ const CloseButtonWrapper = styled(UnstyledButton)`
   right: 16px;
 `;
 const FooterWrapper = styled.footer`
-  position: absolute;
+  flex: 1;
+  /* position: absolute; */
   display: flex;
   flex-direction: column;
-  bottom: 32px;
-  left: 32px;
+  justify-content: flex-end;
+  /* bottom: 32px; */
+  /* left: 32px; */
   gap: 10px;
+  /* padding-top: 16px; */
   & > a {
     text-decoration: none;
-    color: ${COLORS.gray[700]};
+    color: var(--color-gray-700);
     font-size: calc(14rem / 16);
     font-weight: 500;
   }
+`;
+const Side = styled.div`
+  flex: 1;
 `;
 
 export default MobileMenu;

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components/macro";
 
-import { COLORS, QUERIES, WEIGHTS } from "../../constants";
+import { QUERIES, WEIGHTS } from "../../constants";
 import Logo from "../Logo";
 import SuperHeader from "../SuperHeader";
 import MobileMenu from "../MobileMenu";
@@ -30,6 +30,7 @@ const Header = () => {
           <NavLink href="/women">Women</NavLink>
           <NavLink href="/kids">Kids</NavLink>
           <NavLink href="/collections">Collections</NavLink>
+          <NavLink href="/collections">Collections</NavLink>
         </DesktopNav>
         <MobileNav>
           <UnstyledButton>
@@ -54,14 +55,16 @@ const Header = () => {
 };
 
 const MainHeader = styled.div`
+  overflow-x: auto;
+  overflow-y: hidden;
   display: flex;
   align-items: baseline;
   padding: 18px 32px;
-  height: 72px;
-  border-bottom: 1px solid ${COLORS.gray[300]};
+  /* min-height: 72px; */
+  border-bottom: 1px solid var(--color-gray-300);
   @media ${QUERIES.tabletAndSmaller} {
     align-items: center;
-    border-top: 4px solid ${COLORS.gray[900]};
+    border-top: 4px solid var(--color-gray-900);
     height: 76px;
     justify-content: space-between;
   }
@@ -73,7 +76,7 @@ const MainHeader = styled.div`
 
 const DesktopNav = styled.nav`
   display: flex;
-  gap: 48px;
+  gap: clamp(16px, 12vw - 5.75rem, 80px);
   margin: 0px 48px;
   @media ${QUERIES.tabletAndSmaller} {
     display: none;
@@ -105,11 +108,11 @@ const NavLink = styled.a`
   font-size: 1.125rem;
   text-transform: uppercase;
   text-decoration: none;
-  color: ${COLORS.gray[900]};
+  color: var(--color-gray-900);
   font-weight: ${WEIGHTS.medium};
 
   &:first-of-type {
-    color: ${COLORS.secondary};
+    color: var(--color-secondary);
   }
 `;
 
